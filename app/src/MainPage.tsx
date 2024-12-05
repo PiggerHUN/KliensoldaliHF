@@ -8,7 +8,7 @@ export function MainPage({setPage}) {
             <NavBar setPage={setPage}/>
             <h2>Receptek:</h2>
             <div class="main-body">
-                <List />
+                <List/>
             </div>
         </div>
     );

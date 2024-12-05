@@ -1,4 +1,5 @@
 import './NavBar.less';
+import { RecipeService } from './RecipeService';
 
 export function NavBar({ setPage }) {
 
@@ -6,8 +7,8 @@ export function NavBar({ setPage }) {
         <h1 class="navbar-title">Az Én Receptkönyvem</h1>
         <nav>
             <ul>
-                <li><a href="#" onClick={() => setPage('main')}>Kezdőlap</a></li>
-                <li><a href="#">Receptek</a></li>
+                <li><a href="#" onClick={() => setPage('main')}>Receptek</a></li>
+                <li><a href="#" onClick={() => setPage('search')}>Keresés</a></li>
                 <li><a href="#" onClick={() => setPage('new')}>Új recept</a></li>
             </ul>
         </nav>

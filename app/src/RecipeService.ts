@@ -1,14 +1,4 @@
-export class Recipe {
-    name: string;
-    ingredients: string[];
-    description: string;
-
-    constructor(name: string, ingredients: string[], description: string) {
-        this.name = name;
-        this.ingredients = ingredients;
-        this.description = description;
-    }
-}
+import { Recipe } from './Recipe';
 
 export class RecipeService {
     static saveRecipe(recipe: Recipe) {
@@ -20,7 +10,7 @@ export class RecipeService {
     static loadRecipes(): Recipe[] {
         const recipesJson = localStorage.getItem('recipes');
         if (recipesJson) {
-            return JSON.parse(recipesJson).map((recipe: any) => new Recipe(recipe.name, recipe.ingredients, recipe.description));
+            return JSON.parse(recipesJson).map((recipe: any) => new Recipe(recipe.id, recipe.name, recipe.ingredients, recipe.description));
         }
         return [];
     }
