@@ -1,13 +1,11 @@
 import { RecipeService } from "./RecipeService"
+import { RecipeBlock } from "./RecipeBlock"
 
-export function List() {
+export function List(filter) {
     return <div>
-        {RecipeService.loadRecipes().map(recipe => <div>
-            <h3>{recipe.name}</h3>
-            <ul>
-                {recipe.ingredients.map(ingredient => <li>{ingredient}</li>)}
-            </ul>
-            <p>{recipe.description}</p>
-        </div>)}
+        {RecipeService.loadRecipes().map(recipe =>
+            //recipe.name.toLowerCase().includes(filter ?? '') ?
+            //    <RecipeBlock recipe={recipe} /> : null)}
+            <RecipeBlock recipe={recipe} />)}
     </div>
 }
