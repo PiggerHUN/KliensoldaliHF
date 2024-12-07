@@ -2,22 +2,36 @@ import './index.less';
 import { render } from 'preact';
 import { MainPage } from './MainPage';
 import { RecipeForm } from './RecipeForm';
-import { useState } from 'preact/hooks';
+import { createContext } from 'preact';
+import { useState, useContext } from 'preact/hooks';
 import { SearchPage } from './SearchPage';
 
+export const PageContext = createContext<(page: string) => void>(() => {});
+
+export const usePage = () => useContext(PageContext);
 
 function App() {
-	let[page, setPage] = useState('main');
-	switch(page){
+	const [page, setPage] = useState('main');
+	let Component;
+	switch(page) {
 		case 'main':
-			return <MainPage setPage={setPage}/>
+			Component = <MainPage/>;
+			break;
 		case 'new':
-			return <RecipeForm setPage={setPage}/>
+			Component = <RecipeForm/>;
+			break;
 		case 'search':
-			return <SearchPage setPage={setPage}/>
+			Component = <SearchPage/>;
+			break;
 		default:
-			return <MainPage setPage={setPage}/>
+			Component = <MainPage/>;
+			break;
 	}
+	return (
+		<PageContext.Provider value={setPage}>
+			{Component}
+		</PageContext.Provider>
+	);
 }
 
 render(<App />, document.getElementById('app'));

@@ -2,10 +2,10 @@ import { NavBar } from "./NavBar"
 import { useState } from "react"
 import './SearchPage.less'
 
-export function SearchPage({ setPage }) {
+export function SearchPage() {
     let [filter, setFilter] = useState('')
     return <div>
-        <NavBar setPage={setPage} />
+        <NavBar/>
         <div class="search-page">
             <h2>Keresés</h2>
             <input class="form-input" type="text" placeholder="Keresés..." />

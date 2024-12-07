@@ -2,10 +2,10 @@ import './MainPage.less';
 import { List } from './List';
 import { NavBar } from './NavBar';
 
-export function MainPage({setPage}) {
+export function MainPage() {
     return (
         <div class="main-page">
-            <NavBar setPage={setPage}/>
+            <NavBar/>
             <h2>Receptek:</h2>
             <div class="main-body">
                 <List/>

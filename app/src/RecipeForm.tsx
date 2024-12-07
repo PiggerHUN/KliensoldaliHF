@@ -4,7 +4,7 @@ import { RecipeService } from './RecipeService';
 import { NavBar } from './NavBar';
 import './RecipeForm.less';
 
-export function RecipeForm({setPage}) {
+export function RecipeForm() {
     const [name, setName] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [description, setDescription] = useState('');
@@ -23,7 +23,7 @@ export function RecipeForm({setPage}) {
 
     return (
         <div>
-            <NavBar setPage={setPage}/>
+            <NavBar/>
             <h2>Új recept felvétele</h2>
             <form class="recipe-form" onSubmit={(e) => { e.preventDefault(); handleSave(); }}>
                 <div>

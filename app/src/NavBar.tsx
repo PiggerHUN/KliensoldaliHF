@@ -1,7 +1,8 @@
 import './NavBar.less';
-import { RecipeService } from './RecipeService';
+import { usePage } from './index'
 
-export function NavBar({ setPage }) {
+export function NavBar() {
+    const setPage = usePage();
 
     return <header class="navbar">
         <h1 class="navbar-title">Az Én Receptkönyvem</h1>
