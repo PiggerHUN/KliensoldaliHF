@@ -2,6 +2,7 @@ import './MainPage.less';
 import { List } from './List';
 import { NavBar } from './NavBar';
 
+// MainPage component renders the main page of the application
 export function MainPage() {
     return (
         <div class="main-page">

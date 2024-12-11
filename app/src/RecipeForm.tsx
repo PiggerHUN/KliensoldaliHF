@@ -5,17 +5,21 @@ import { NavBar } from './NavBar';
 import './RecipeForm.less';
 
 export function RecipeForm() {
+    // useState hooks to manage form input states
     const [name, setName] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [description, setDescription] = useState('');
 
+    // Generate a random ID for the new recipe
     let id = Math.floor(Math.random() * 1000000);
 
+    // Function to handle form submission and save the recipe
     const handleSave = () => {
         const ingredientsArray = ingredients.split(',').map(ingredient => ingredient.trim());
         const newRecipe = new Recipe(id, name, ingredientsArray, description);
         RecipeService.saveRecipe(newRecipe);
-        // Clear the form
+        
+        // Reset form inputs
         setName('');
         setIngredients('');
         setDescription('');

@@ -1,15 +1,30 @@
+import './SearchPage.less'
 import { NavBar } from "./NavBar"
 import { useState } from "react"
-import './SearchPage.less'
+import { List } from "./List"
 
 export function SearchPage() {
-    let [filter, setFilter] = useState('')
+    // useState hook to manage the filter state
+    const [filter, setFilter] = useState('');
+
+    // Function to handle search reset
+    const handleSearch = () => {
+        setFilter('');
+    }
+
     return <div>
         <NavBar/>
         <div class="search-page">
             <h2>Keresés</h2>
-            <input class="form-input" type="text" placeholder="Keresés..." />
-            <button onClick={(e)=>setFilter(e.currentTarget.value)}>Keresés</button>
+            <form class="search-form" onReset={handleSearch}>
+                <div>
+                    <input class="form-input" type="text" value={filter} onInput={(e)=>setFilter(e.currentTarget.value)} placeholder="Keresés..." />
+                    <button type="reset">Reset</button> 
+                </div>
+            </form>
+            <div class="search-results">
+                <List filter={filter} />
+            </div>
         </div>
     </div>
 }

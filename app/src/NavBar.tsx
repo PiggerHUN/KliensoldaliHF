@@ -1,6 +1,7 @@
 import './NavBar.less';
 import { usePage } from './index'
 
+// NavBar component renders the navigation bar of the application
 export function NavBar() {
     const setPage = usePage();
 
